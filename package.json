@@ -1,0 +1,26 @@
+{
+  "name": "l3x-generate-file",
+  "version": "0.0.1",
+  "description": "Generate File",
+  "main": "src/index.js",
+  "author": "Len <cxin1314@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "genTpl": "node ./example/gentpl/gen.js",
+    "genJson": "node ./example/genjson/gen.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lencx/l3x-generate-file.git"
+  },
+  "keywords": [
+    "generate",
+    "file",
+    "json",
+    "template"
+  ],
+  "dependencies": {
+    "chalk": "^2.4.1",
+    "fs-extra": "^7.0.0"
+  }
+}
