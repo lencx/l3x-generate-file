@@ -11,6 +11,7 @@ genFile.genJSON({
     data: require('./test.json'), // object
     key: 'cc',
     val: 33,
-    output: 'new-test.json'
+    output: 'new-test.json',
+    cover: false  // default: false
 })
 ```

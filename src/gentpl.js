@@ -7,7 +7,7 @@ const { red, yellow, green } = require('chalk')
  */
 exports.genTpl = tpls => {
     if(tpls === undefined) {
-        console.log('Please specify a template file, doc: https://github.com/lencx/l3x-gentpl')
+        console.log('Please specify a template file, doc: https://github.com/lencx/l3x-generate-file')
         return
     }
     Object.keys(tpls).forEach(key => {

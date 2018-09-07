@@ -11,9 +11,9 @@ npm install l3x-generate-file
 ## Usage
 
 ```js
-const genFile = require('l3x-generate-file')
-genFile.genTpl(data)
-genFile.genJSON(data)
+const {genTpl, genJSON} = require('l3x-generate-file')
+genTpl(data)
+genJSON(data)
 ```
 
 ## Methods
@@ -24,12 +24,12 @@ genFile.genJSON(data)
 ## Example
 
 ```js
-const genFile = require('l3x-generate-file')
+const {genTpl, genJSON} = require('l3x-generate-file')
 
 // genTpl
-genFile.genTpl(require('./tpl'))
+genTpl(require('./tpl'))
 // or
-genFile.genTpl({
+genTpl({
     css: {
         tpl: `body {background: pink;}`,
         output: 'tpl/css/main.css'
@@ -39,11 +39,12 @@ genFile.genTpl({
 
 // ------------------------------------------
 
-genFile.genJSON({
+genJSON({
     data: require('./test.json'), // object
     key: 'cc',
     val: 33,
-    output: 'new-test.json'
+    output: 'new-test.json',
+    cover: false  // default: false
 })
 ```
 

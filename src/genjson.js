@@ -10,16 +10,18 @@ const writeFile = (filename, data) => {
 
 /**
  * Generate JSON file
- * @param object opts - {data,key,val,output?}
+ * @param object opts - data | key | val | cover? | output?
  */
-exports.genJSON = (opts) => {
-    const { data, key, val, output = 'default.json' } = opts
+exports.genJSON = opts => {
+    const { data, key, val, output = 'default.json', cover = false } = opts
     let _d = data
     let _dataKeys = Object.keys(data)
-    if(!_dataKeys.includes(key)) {
+    const tmp = () => {
         _d = Object.assign(data, {
             [key]: val
         })
         writeFile(output, _d)
     }
+    if(!_dataKeys.includes(key)) tmp()
+    else if(cover && _d[key] !== val) tmp()
 }
