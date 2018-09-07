@@ -1,6 +1,6 @@
 {
   "name": "l3x-generate-file",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Generate File",
   "main": "src/index.js",
   "author": "Len <cxin1314@gmail.com>",
