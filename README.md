@@ -13,7 +13,7 @@ npm install l3x-generate-file
 ```js
 const {genTpl, genJSON} = require('l3x-generate-file')
 genTpl(data)
-genJSON(data)
+genJSON(data [, outputPath|options])
 ```
 
 ## Methods
