@@ -10,18 +10,31 @@ const writeFile = (filename, data) => {
 
 /**
  * Generate JSON file
- * @param object opts - data | key | val | cover? | output?
+ * @param object data - data object or require json file
+ * @param string|object output?|opts? - key | val | cover? | output?
+ * default output => default.json
  */
-exports.genJSON = opts => {
-    const { data, key, val, output = 'default.json', cover = false } = opts
-    let _d = data
-    let _dataKeys = Object.keys(data)
-    const tmp = () => {
-        _d = Object.assign(data, {
-            [key]: val
-        })
-        writeFile(output, _d)
+exports.genJSON = (data, opts) => {
+    let defOutput = 'default.json'
+
+    if(opts === undefined) {
+        writeFile(defOutput, data)
+    } else if (typeof opts === 'string') {
+        writeFile(opts, data)
+    } else {
+        if (Object.prototype.toString.call(opts) !== '[object Object]') {
+            return console.log(red(`genJSON(data [, outputPath|options])\noptions object: key | val | cover? | output?`))
+        }
+        const { key, val, output = defOutput, cover = false } = opts
+        let _d = {}
+        let _dataKeys = Object.keys(data)
+        const tmp = () => {
+            _d = Object.assign(data, {
+                [key]: val
+            })
+            writeFile(output, _d)
+        }
+        if(!_dataKeys.includes(key.toString())) tmp()
+        else if(cover && _d[key] !== val) tmp()
     }
-    if(!_dataKeys.includes(key)) tmp()
-    else if(cover && _d[key] !== val) tmp()
 }
